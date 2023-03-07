@@ -30,7 +30,7 @@ let typeText = (element, text) => {
         } else {
             clearInterval(interval)
         }
-    }, 100)
+    }, 30)
 }
 
 // generate unique ID for each message div of bot
