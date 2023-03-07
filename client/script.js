@@ -3,6 +3,7 @@ import user from './assets/user.svg'
 
 const form = document.querySelector('form')
 const chatContainer = document.querySelector('#chat_container')
+let textareaElement = document.getElementById('textarea');
 
 let loadInterval
 
@@ -64,51 +65,53 @@ let chatStripe = (isAi, value, uniqueId) => {
 
 const handleSubmit = async (e) => {
     e.preventDefault()
-
-    const data = new FormData(form)
-
-    // user's chatstripe
-    chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
-
-    // to clear the textarea input 
-    form.reset()
-
-    // bot's chatstripe
-    const uniqueId = generateUniqueId()
-    chatContainer.innerHTML += chatStripe(true, " ", uniqueId)
-
-    // to focus scroll to the bottom 
-    chatContainer.scrollTop = chatContainer.scrollHeight;
-
-    // specific message div 
-    const messageDiv = document.getElementById(uniqueId)
-
-    // messageDiv.innerHTML = "..."
-    loader(messageDiv)
-
-    const response = await fetch('https://chatgtpcloneserver1.onrender.com/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            prompt: data.get('prompt')
+debugger;
+    if (textareaElement.value.length > 0) {
+        const data = new FormData(form)
+    
+        // user's chatstripe
+        chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
+    
+        // to clear the textarea input 
+        form.reset()
+    
+        // bot's chatstripe
+        const uniqueId = generateUniqueId()
+        chatContainer.innerHTML += chatStripe(true, " ", uniqueId)
+    
+        // to focus scroll to the bottom 
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    
+        // specific message div 
+        const messageDiv = document.getElementById(uniqueId)
+    
+        // messageDiv.innerHTML = "..."
+        loader(messageDiv)
+    
+        const response = await fetch('https://chatgtpcloneserver1.onrender.com/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                prompt: data.get('prompt')
+            })
         })
-    })
-
-    clearInterval(loadInterval)
-    messageDiv.innerHTML = " "
-
-    if (response.ok) {
-        const data = await response.json();
-        const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
-
-        typeText(messageDiv, parsedData)
-    } else {
-        const err = await response.text()
-
-        messageDiv.innerHTML = err
-        alert(err)
+    
+        clearInterval(loadInterval)
+        messageDiv.innerHTML = " "
+    
+        if (response.ok) {
+            const data = await response.json();
+            const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
+    
+            typeText(messageDiv, parsedData)
+        } else {
+            const err = await response.text()
+    
+            messageDiv.innerHTML = err
+            alert(err)
+        }
     }
 }
 
