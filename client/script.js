@@ -65,7 +65,6 @@ let chatStripe = (isAi, value, uniqueId) => {
 
 const handleSubmit = async (e) => {
     e.preventDefault()
-debugger;
     if (textareaElement.value.length > 0) {
         const data = new FormData(form)
     
