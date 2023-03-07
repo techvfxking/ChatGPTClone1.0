@@ -86,7 +86,7 @@ const handleSubmit = async (e) => {
     // messageDiv.innerHTML = "..."
     loader(messageDiv)
 
-    const response = await fetch('https://chatgptclone-biplab-sharma-v1-server.onrender.com', {
+    const response = await fetch('https://chatgtpcloneserver1.onrender.com/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
