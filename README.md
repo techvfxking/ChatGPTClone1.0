@@ -42,3 +42,39 @@ Then within a half a minute, you will get your exact result that you are looking
   
   Built using Node.js
   Technologies used are - Node.js, Express.js, Nodemon Server package, Cors and Open AI
+  
+## How to Run Client :
+In the project directory, you can run:
+
+1) Install dependencies :
+```
+npm install
+```
+
+2) Run this app on your browser :
+```
+npm run dev
+```
+
+Runs the app in the development mode.<br />
+Open [http://localhost:5173/](http://localhost:5173/) to view it in the browser.
+
+<br />
+
+## How to Run Server :
+In the project directory, you can run:
+
+1) Install dependencies :
+```
+npm install
+```
+
+2) Run this app on your browser :
+```
+npm run server
+```
+
+Runs the app in the development mode.<br />
+Open [http://localhost:5000/](http://localhost:5000/) to view it in the browser.
+
+<br />
