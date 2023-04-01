@@ -31,3 +31,14 @@ Experience the web application here [here](https://chat-gpt-clone-biplab-sharma1
 In my web app I have also used populer AI data set called text-davinci-003 by OPEN-AI. The application is very easy to use and have very clean falt UI. By opening of the application you get to see a text area and send button beside the text area. You need to type your query or question and press the enter key from keyboard or the search button. 
 
 Then within a half a minute, you will get your exact result that you are looking for. Sometimes it takes a longer time, because the API is hosted on EU server on [Render](https://render.com/) 
+
+1. Client :
+
+  Built using frontedn tool called VITE
+  Programming language used are - HTML, CSS, JavaScript
+  <br/>
+  
+2. Server :
+  
+  Built using Node.js
+  Technologies used are - Node.js, Express.js, Nodemon Server package, Cors and Open AI
